@@ -8,9 +8,19 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'meu_site';
+  title = 'meu_site'
+  name = ""
 
   click() {
-    localStorage.setItem('chave', 'valor');
+    localStorage.setItem('usuario', 'valor')
+  }
+
+  delete() {
+    localStorage.clear()
+  }
+
+  show() {
+    const usuario = localStorage.getItem('usuario')
+    this.name = usuario ?? ''
   }
 }
