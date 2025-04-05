@@ -39,7 +39,7 @@ export class AppComponent {
   }
 
   showNotification(title: string, options?: NotificationOptions) {
-    if ('Notification' in window && Notification.permission === 'granted') {
+    if (typeof window !== 'undefined' && 'Notification' in window && Notification.permission === 'granted') {
       new Notification(title, options);
     } else {
       console.warn('Notificações não permitidas ou não suportadas pelo navegador.');
@@ -48,8 +48,7 @@ export class AppComponent {
 
   sendNotification() {
     this.showNotification('Notificação Ativada!', {
-      body: 'Essa é uma notificação do seu app Angular 🚀',
-      icon: 'assets/icon.png'
+      body: 'Essa é uma notificação do seu app Angular 🚀'
     });
   }
 }
