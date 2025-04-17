@@ -1,4 +1,8 @@
 <div>
+    <form [formGroup]="form">
+        <input type="text" formControlName="input">
+    </form>
+
     <button (click)="click()">
         Setar
     </button>
@@ -10,8 +14,6 @@
     <button (click)="show()">
         Show
     </button>
-
-    <button (click)="sendNotification()">Mostrar Notificação</button>
 
     <h1>{{ name }}</h1>
 </div>
