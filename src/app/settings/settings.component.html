@@ -57,26 +57,27 @@
   </mat-card>
 
   <mat-card *ngIf="variables.length > 0">
-    <mat-card-header>
+    <mat-card-header style="margin-bottom: 1rem;">
       <mat-card-title>Variáveis Definidas</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let variable of variables" class="variable-list-item">
-          
-          <span matListItemLine>
+      <div>
+        <div *ngFor="let variable of variables" class="variable-list-item" style="    display: flex
+;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;">
             
-            <mat-form-field class="variable-value-input">
+            
+            <mat-form-field class="variable-value-input" appearance="outline">
               <mat-label>{{ variable.name }}</mat-label>
-              <input matInput type="number" [value]="variable.value"
+              <input  matInput type="number" [value]="variable.value"
                      (input)="updateVariableValue(variable, $event)"
                      [disabled]="!variable.isConstant && variable.isVisualized"
                      placeholder="Valor">
             </mat-form-field>
-            <span class="variable-name">{{ variable.name }}</span>
-          </span>
 
-          <div matListItemMeta class="variable-actions">
+          <div >
               <button mat-icon-button 
                       (click)="toggleVisualized(variable)" 
                       [attr.aria-pressed]="variable.isVisualized"
@@ -87,8 +88,8 @@
                 <mat-icon>delete</mat-icon>
               </button>
           </div>
-        </mat-list-item>
-      </mat-list>
+        </div>
+    </div>
     </mat-card-content>
   </mat-card>
 </div>
