@@ -72,7 +72,7 @@
             <mat-form-field class="variable-value-input" appearance="outline">
               <mat-label>{{ variable.name }}</mat-label>
               <input  matInput type="number" [value]="variable.value"
-                     (input)="updateVariableValue(variable, $event)"
+                     (blur)="updateVariableValue(variable, $event)"
                      [disabled]="!variable.isConstant && variable.isVisualized"
                      placeholder="Valor">
             </mat-form-field>

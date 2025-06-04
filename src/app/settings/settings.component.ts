@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox'; // Ou MatSlideToggleModule
 import { MatCardModule } from '@angular/material/card'; // Para melhor layout
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FormulaService, Variable } from '../formula.service';
 import { Subscription } from 'rxjs';
@@ -27,6 +28,7 @@ import { Subscription } from 'rxjs';
     MatIconModule,
     MatCheckboxModule,
     MatCardModule,
+    MatSnackBarModule,
   ],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
@@ -39,6 +41,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
+    private snackBar: MatSnackBar,
     public formulaService: FormulaService, // Tornar público para usar no template
     private router: Router
   ) {}
@@ -79,7 +82,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
     if (this.formulaForm.valid) {
       this.formulaService.setFormula(this.formulaForm.value.formulaString);
       // Adicionar feedback ao usuário (ex: Snackbar)
-      console.log('Fórmula salva:', this.formulaForm.value.formulaString);
+      this.snackBar.open('Fórmula salva: '+this.formulaForm.value.formulaString, 'Fechar', { duration: 3000 });
     }
   }
 
