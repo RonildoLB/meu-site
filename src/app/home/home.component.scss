@@ -1,0 +1,55 @@
+.home-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.variables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.variable-input-item {
+  mat-form-field {
+    width: 100%;
+  }
+  .constant-value {
+    display: block;
+    padding: 8px 0;
+  }
+}
+
+.result {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+
+  &.success {
+    color: green;
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+  }
+
+  &.error {
+    color: red;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+  }
+}
+
+.text-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+}
+.font-semibold {
+    font-weight: 600;
+}
+.mb-2 {
+    margin-bottom: 0.5rem; /* 8px */
+}
+.mt-4 {
+    margin-top: 1rem; /* 16px */
+}

@@ -1,20 +1,16 @@
-<div>
-    <form [formGroup]="form">
-        <input type="text" formControlName="input">
-    </form>
+<mat-toolbar color="primary"> <span>Cálculo de Valor</span>
 
-    <button (click)="click()">
-        Setar
-    </button>
+  <span class="example-spacer"></span>
 
-    <button (click)="delete()">
-        Delete
-    </button>
+  <button *ngIf="showInstallButton" mat-raised-button (click)="installPWA()" color="accent" class="install-button"
+          aria-label="Instalar Aplicativo" matTooltip="Instalar o aplicativo em seu dispositivo">
+    <mat-icon>download</mat-icon>
+    Instalar App
+  </button>
 
-    <button (click)="show()">
-        Show
-    </button>
+  <button mat-icon-button aria-label="Configurações" routerLink="/settings"> <mat-icon>settings</mat-icon>
+  </button>
+</mat-toolbar>
 
-    <h1>{{ name }}</h1>
+<div class="container p-4" style="padding-top: 1rem;"> <router-outlet />
 </div>
-<router-outlet/>
