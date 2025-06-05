@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'; // Para feedback
+import { NotificationService } from './notification.service';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private pushSw: SwPush,
     private update: SwUpdate,
     private snackBar: MatSnackBar,
+    private notificationService: NotificationService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -57,6 +59,15 @@ export class AppComponent implements OnInit, OnDestroy {
       // Mostra seu botão de instalação customizado.
       this.showInstallButton = true;
     }
+  }
+
+  dispararNotificacao(): void {
+    this.notificationService.showLocalNotification(
+      'Título da Notificação',
+      'Notificação push funciona' // Seu texto desejado
+      // Você pode adicionar um terceiro parâmetro para o caminho de um ícone específico
+      // 'assets/meu-icone-especial.png'
+    );
   }
 
   private setupInstallPromptListener(): void {
